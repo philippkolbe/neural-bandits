@@ -13,7 +13,7 @@
 3. Make your changes (including reasonable unit tests).
 4. Create a pull request to the `main` branch.
 5. Ensure that ALL tests pass and format / lint / typing is correct. (`make all` / `make test` / `make lint` / `make format` / `make mypy`)
-6. Documente all of the user facing library code. 
+6. Document all of the user facing library code. 
 7. Ask someone for a review if you need it.
 
 ## Documentation
@@ -22,8 +22,5 @@
 
 
 ## Timeplan
-- have MVP ready by 1st of February
-- final deadline on 25th of March
-
-
-## TODO: MVP specification
+- have MVP ready by 1st of February 2025
+- final deadline on 25th of March 2025

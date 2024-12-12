@@ -9,15 +9,16 @@
 - Synthetic dataset (wheel bandit, generation functions)
 
 ### Feedback -- offline vs. online
-- Offline feedback
-- store probabilities for logged feedback-based training
+- Online Feedback (rewards per action)
+- Offline feedback (Optional)
+- store probabilities for logged feedback-based training  (Optional)
 
 
 ### Algorithms
 *NOTE*: everything is contextual
 #### Exploration Strategies
 - Linear Bandits (LinUCB, LinTS)
-- ($\epsilon$)-greedy
+- ($\epsilon$)-greedy (?)
 - NeuralUCB (UCB with gradients)
 - NeuralTS
 - Combinatorial Bandits (maybe we need to figure the integration of this out)
@@ -25,14 +26,14 @@
 #### Architectures
 - Bootstrap
 - Neural Networks
-- Low Rank Adaption of Neural Networks
+- Low Rank Adaption of Neural Networks (Optional)
 
 ---
 
 # Architecture specifics
  
 
- ## Model (forward pass)
+## Model (forward pass)
 This is just a sketch: 
 
 ## General Case: Multiple Feature Vectors
