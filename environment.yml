@@ -20,6 +20,7 @@ dependencies:
   - scikit-learn
   - matplotlib
   - seaborn
+  - ucimlrepo
 
   # Misc
   - tqdm
