@@ -7,11 +7,9 @@ class MultiClassContextualiser(AbstractContextualiser):
     def __init__(
         self,
         n_arms: int,
-        n_classes: int,
     ) -> None:
         super().__init__()
         self.n_arms = n_arms
-        self.n_classes = n_classes
 
     def contextualise(
         self,
@@ -23,13 +21,13 @@ class MultiClassContextualiser(AbstractContextualiser):
             feature_vector (torch.Tensor): Input feature vector of shape (batch_size, n_features)
 
         Returns:
-            torch.Tensor: Contextualised actions of shape (bathch_size, n_arms, n_classes * n_arms)
+            torch.Tensor: Contextualised actions of shape (batch_size, n_arms, n_features * n_arms)
         """
-        # contextualised_actions = torch.outer(
-        #     torch.eye(self.n_arms), feature_vector
-        # ).reshape(self.n_arms, self.n_classes * self.n_arms)
-        contextualised_actions = torch.einsum(
-            "i,kj->k,ij", torch.eye(self.n_arms), feature_vector
-        )
+        n_features = feature_vector.shape[1]
+        
+        contextualised_actions = torch.kron(
+            torch.eye(self.n_arms),
+            feature_vector
+        ).reshape(-1, self.n_arms, n_features * self.n_arms)
 
         return contextualised_actions

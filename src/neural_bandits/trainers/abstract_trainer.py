@@ -1,15 +1,17 @@
 from abc import ABC, abstractmethod
+from typing import Generic, TypeVar
+
 
 import torch
 
 from ..algorithms.abstract_bandit import AbstractBandit
 
-
-class AbstractTrainer(ABC):
+BanditType = TypeVar('BanditType', bound='AbstractBandit')
+class AbstractTrainer(ABC, Generic[BanditType]): # this is now 
     @abstractmethod
     def update(
         self,
-        bandit: AbstractBandit,
+        bandit: BanditType,
         rewards: torch.Tensor,
         chosen_actions: torch.Tensor,
     ) -> AbstractBandit:
